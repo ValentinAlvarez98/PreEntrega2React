@@ -31,7 +31,9 @@ TabPanel.propTypes = {
 };
 
 
-const BasicTabs = ({ products }) => {
+const BasicTabs = (props) => {
+
+    const { products, showTabs } = props;
 
     const theme = useTheme();
 
@@ -54,25 +56,29 @@ const BasicTabs = ({ products }) => {
 
     const categories = ['cellphones', 'headphones', 'cargadores', 'protectores'];
 
-    const filteredProducts = products.filter((product) => product.category === category);
+    const filteredProducts = products.filter((product) => showTabs ? product.category === category : null);
+
+    if (filteredProducts.length === 0 && products.length === 0) return <h2>No hay productos</h2>;
+
 
     return (
         <>
-            <Box sx={{
-                borderBottom: 1,
-                borderColor: 'divider',
-                marginTop: '2.5rem',
-            }}>
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    centered
-                >
-                    {tabs.map((tab, index) => (
-                        <Tab key={index} sx={styledTabs} label={tab.label} />
-                    ))}
-                </Tabs>
-            </Box>
+            {showTabs ? (
+                <Box sx={{
+                    borderBottom: 1,
+                    borderColor: 'divider',
+                    marginTop: '2.5rem',
+                }}>
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        centered
+                    >
+                        {tabs.map((tab, index) => (
+                            <Tab key={index} sx={styledTabs} label={tab.label} />
+                        ))}
+                    </Tabs>
+                </Box>) : null}
 
             {Array.from({
                 length: tabs.length
@@ -85,7 +91,11 @@ const BasicTabs = ({ products }) => {
                         key={index}>
 
                         <Grid container spacing={2} justifyContent={'center'} alignItems={'center'}>
-                            {filteredProducts.map((product) => (
+
+                            {showTabs ? filteredProducts.map((product) => (
+
+                                <Item product={product} key={product.id} />
+                            )) : products.map((product) => (
 
                                 <Item product={product} key={product.id} />
                             ))}

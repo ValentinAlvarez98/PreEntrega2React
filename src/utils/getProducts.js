@@ -23,13 +23,13 @@ const login = async (email, password) => {
 
 }
 
-export const getProducts = async () => {
+export const getProducts = async (sId) => {
 
       const loginResponse = await login(email, password);
 
       if (loginResponse.status === '200: OK') {
 
-            const productsResponse = await fetchProducts();
+            const productsResponse = await fetchProducts(sId);
 
             if (productsResponse.status === 'success') {
 

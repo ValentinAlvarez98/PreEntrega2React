@@ -36,11 +36,14 @@ export const fetchLogin = async (email, password) => {
 
 };
 
-export const fetchProducts = async () => {
+export const fetchProducts = async (sId) => {
 
       try {
 
-            const response = await fetch('https://pfalvarez-production.up.railway.app/api/products', {
+            const response = sId ? await fetch(`https://pfalvarez-production.up.railway.app/api/products?query=${sId}`, {
+                  method: 'GET',
+                  credentials: 'include'
+            }) : await fetch('https://pfalvarez-production.up.railway.app/api/products', {
                   method: 'GET',
                   credentials: 'include'
             });
@@ -48,7 +51,6 @@ export const fetchProducts = async () => {
             const products = await response.json();
 
             if (response.ok) {
-
                   return products;
 
             } else {
