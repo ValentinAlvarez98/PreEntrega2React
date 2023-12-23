@@ -18,14 +18,14 @@ const Footer = () => {
 
         styledTypography: {
             color: theme.palette.primary.dark,
-            fontSize: '0.9rem',
+            fontSize: theme.typography.fontSize.md,
             fontFamily: theme.typography.fontFamily.bold,
         },
 
         styledCopyrigth: {
             color: theme.palette.secondary.light,
             textAlign: 'center',
-            fontSize: '0.75rem',
+            fontSize: theme.typography.fontSize.xs,
             marginBottom: '1rem',
             fontFamily: theme.typography.fontFamily.regular,
         },

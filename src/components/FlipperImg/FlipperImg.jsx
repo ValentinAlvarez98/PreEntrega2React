@@ -1,10 +1,16 @@
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 const FlipperImg = ({ product, size }) => {
 
 
     return (
-        <Box className="flipper-image-container" style={{ width: size, height: size }}>
+        <Box
+            className="flipper-image-container"
+            style={{
+                width: size,
+                height: size,
+            }}
+        >
             <img
                 width={size}
                 height={size}
@@ -20,7 +26,7 @@ const FlipperImg = ({ product, size }) => {
                 alt={product.title}
                 className="flipper-image-secondary"
             />
-        </Box >
+        </Box>
     );
 };
 

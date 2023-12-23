@@ -7,7 +7,7 @@ const ItemList = (props) => {
 
     return (
         <>
-            <Container className="container" maxWidth="lg">
+            <Container className="container" maxWidth="xl" >
 
                 <BasicTabs products={products} showTabs={showTabs} />
 

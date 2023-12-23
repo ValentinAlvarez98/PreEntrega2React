@@ -85,12 +85,12 @@ const BasicTabs = (props) => {
             },
                 (_, index) => (
                     <TabPanel
+
                         value={value}
                         index={index}
-                        sx={{ marginTop: '0' }}
                         key={index}>
 
-                        <Grid container spacing={2} justifyContent={'center'} alignItems={'center'}>
+                        <Grid container spacing={2} justifyContent={'center'} alignItems={'center'}  >
 
                             {showTabs ? filteredProducts.map((product) => (
 

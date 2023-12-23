@@ -15,6 +15,7 @@ const Item = ({ product }) => {
             fontSize: theme.typography.fontSize.md,
             marginBottom: '1rem',
             height: '40px',
+            width: '300px',
             fontFamily: theme.typography.fontFamily.bold,
         },
 
@@ -23,7 +24,7 @@ const Item = ({ product }) => {
             textAlign: 'center',
             fontSize: theme.typography.fontSize.lg,
             marginBottom: '1rem',
-            fontFamily: theme.typography.fontFamily.bold,
+            fontFamily: theme.typography.fontFamily.semiBold,
         },
 
         styledButton: {
@@ -32,62 +33,68 @@ const Item = ({ product }) => {
             width: '200px',
             height: "30px",
             borderRadius: '0.1rem',
-            marginTop: '1rem',
             fontSize: theme.typography.fontSize.sm,
             fontFamily: theme.typography.fontFamily.semiBold,
+            marginTop: '1rem',
+            marginLeft: '3.14rem',
+        },
+
+        styledGridItem: {
+            position: 'relative',
+            paddingRight: '1rem',
+            '&::before, &::after': {
+                content: '""',
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                width: '0.5px',
+                height: '40%',
+                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                top: '15%',
+            },
+            '&::after': {
+                left: 'auto',
+                right: 0,
+            }
         }
 
     }
 
     return (
 
-        <Grid item xs={12} sm={6} md={4} lg={3} key={product._id}>
+        <Grid item key={product._id} sx={styledItem.styledGridItem}  >
 
-            <Grid container direction={'row'} justifyContent={'center'} alignItems={'center'}>
 
-                <Link to={`/${product.category}/${product._id}`}
-                    style={{
-                        textDecoration: "none",
-                    }}
-                >
-                    <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Link to={`/${product.category}/${product._id}`}
+                style={{
+                    textDecoration: "none",
+                }}
+            >
 
-                        <FlipperImg product={product} size={300} />
+                <FlipperImg product={product} size={300} />
 
-                    </Grid>
+                <Typography sx={styledItem.styledTitle}>
+                    {product.title}
+                </Typography>
 
-                    <Grid item xs={12} sm={12} md={12} lg={12}>
+            </Link>
 
-                        <Typography sx={styledItem.styledTitle}>
-                            {product.title}
-                        </Typography>
+            <Typography
+                sx={styledItem.styledPrice}
+            >
+                USD {product.price.toFixed(2)}
+            </Typography>
 
-                    </Grid>
 
-                </Link>
+            <Button
+                variant="contained"
+                sx={styledItem.styledButton}>
+                Agregar al carrito
+            </Button>
 
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-
-                    <Typography
-                        className="regular"
-                        variant="body2"
-                        sx={styledItem.styledPrice}
-                    >
-                        USD {product.price.toFixed(2)}
-                    </Typography>
-
-                </Grid>
-
-                <Button
-                    className='semiBold'
-                    variant="contained"
-                    sx={styledItem.styledButton}>
-                    Agregar al carrito
-                </Button>
-
-            </Grid>
 
         </Grid>
+
 
     )
 }

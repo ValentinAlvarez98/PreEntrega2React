@@ -46,15 +46,15 @@ export const payments = [{
     imgPath: MasterCard,
   },
   {
+    label: "Oca",
+    imgPath: Oca,
+  },
+  {
     label: "Brou",
     imgPath: Brou,
   },
   {
     label: "RedPagos",
     imgPath: RedPagos,
-  },
-  {
-    label: "Oca",
-    imgPath: Oca,
   },
 ];
