@@ -14,7 +14,7 @@ export default function AppRoutes() {
                         </>
                   } />
                   <Route path="/:cId" element={<ItemListContainer />} />
-                  <Route path="/:cId/:pId" element={<ItemDetailContainer />} />
+                  <Route path="/:cId/:p_id" element={<ItemDetailContainer />} />
                   <Route path="*" element={<Navigate to="/" />} />
             </Routes>
       );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchLogin, fetchProducts } from '../../hooks/useFetch/useFetch.js';
+import { getProducts } from '../../utils/getProducts.js';
 import ItemList from './ItemList/ItemList.jsx';
 
 const ItemListContainer = () => {
@@ -16,24 +16,9 @@ const ItemListContainer = () => {
 
                   try {
 
-                        const email = 'test_react_valentin@gmail.com';
-                        const password = '12345678';
+                        const products = await getProducts();
 
-                        const loginResponse = await fetchLogin(email, password);
-
-                        if (loginResponse && loginResponse.status === "200: OK") {
-
-                              const productsResponse = await fetchProducts();
-
-                              const productsData = productsResponse.payload.products;
-
-                              setProducts(productsData);
-
-                        } else {
-
-                              setError('Error en el login de la API');
-
-                        }
+                        setProducts(products);
 
                   } catch (err) {
 

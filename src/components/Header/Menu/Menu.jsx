@@ -49,6 +49,15 @@ const Menu = ({ showSearch }) => {
                         backgroundColor: '#007DFE',
                         boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.25)',
                   },
+            },
+            styledPersonIcon: {
+                  color: theme.palette.primary.main,
+                  marginRight: "0.1rem",
+                  fontSize: theme.icons.sizes.xxl,
+                  ":hover": {
+                        color: theme.palette.primary.dark,
+                        cursor: "pointer",
+                  }
             }
       }
 
@@ -92,15 +101,7 @@ const Menu = ({ showSearch }) => {
                               <Grid item xxl={2} xl={2} lg={1} md={1} sm={2} xs={5} sx={{
                                     textAlign: "end",
                               }}>
-                                    <PersonIcon sx={{
-                                          color: theme.palette.primary.main,
-                                          marginRight: "0.1rem",
-                                          fontSize: theme.icons.sizes.xxl,
-                                          ":hover": {
-                                                color: theme.palette.primary.dark,
-                                                cursor: "pointer",
-                                          }
-                                    }} />
+                                    <PersonIcon sx={styledMenu.styledPersonIcon} />
                               </Grid>
                         </Grid>
                   </Toolbar>
