@@ -54,7 +54,7 @@ const BasicTabs = (props) => {
 
     const tabs = [{ label: 'Celulares' }, { label: 'Auriculares' }, { label: 'Cargadores' }, { label: 'Protectores' },];
 
-    const categories = ['cellphones', 'headphones', 'cargadores', 'protectores'];
+    const categories = ['cellphones', 'headphones', 'chargers', 'cases'];
 
     const filteredProducts = products.filter((product) => showTabs ? product.category === category : null);
 

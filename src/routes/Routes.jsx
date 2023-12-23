@@ -21,7 +21,12 @@ export default function AppRoutes() {
                               <Footer />
                         </>
                   } />
-                  <Route path="/:cId/:p_id" element={<ItemDetailContainer />} />
+                  <Route path="/:cId/:p_id" element={
+                        <>
+                              <ItemDetailContainer />
+                              <Footer />
+                        </>
+                  } />
                   <Route path="*" element={<Navigate to="/" />} />
             </Routes>
       );

@@ -7,6 +7,7 @@ const ItemDetailContainer = () => {
       const { p_id } = useParams()
 
       const [product, setProduct] = useState([])
+      const [thumbnails, setThumbnails] = useState([])
       const [loading, setLoading] = useState(false)
       const [error, setError] = useState(null)
 
@@ -21,6 +22,7 @@ const ItemDetailContainer = () => {
                         const product = await getProductById(p_id)
 
                         setProduct(product)
+                        setThumbnails(product.thumbnails)
 
                   } catch (err) {
 
@@ -39,10 +41,12 @@ const ItemDetailContainer = () => {
       if (loading) return <h2>Loading...</h2>
       if (error) return <h2>{error}</h2>
 
+
       return (
             <>
 
                   <ul>
+                        <li> {thumbnails.map((thumbnail, index) => <img src={thumbnail} alt="thumbnail" key={index} />)} </li>
                         <li>{product.title}</li>
                         <li>{product.price}</li>
                         <li>{product.description}</li>
