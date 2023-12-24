@@ -8,26 +8,26 @@ export default function AppRoutes() {
 
       return (
             <Routes>
-                  <Route path="/" element={
+                  <Route path="/PreEntrega2React" element={
                         <>
                               <Carousel prop="Aqui va el carousel" />
                               <ItemListContainer />
                               <Footer />
                         </>
                   } />
-                  <Route path="/:sId" element={
+                  <Route path="/PreEntrega2React/:sId" element={
                         <>
                               <ItemListContainer />
                               <Footer />
                         </>
                   } />
-                  <Route path="/:cId/:p_id" element={
+                  <Route path="/PreEntrega2React/:cId/:p_id" element={
                         <>
                               <ItemDetailContainer />
                               <Footer />
                         </>
                   } />
-                  <Route path="*" element={<Navigate to="/" />} />
+                  <Route path="*" element={<Navigate to="/PreEntrega2React" />} />
             </Routes>
       );
 
