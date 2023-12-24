@@ -10,9 +10,9 @@ const NavBar = ({ showDropdown }) => {
       const theme = useTheme();
 
       const categories = [
-            { icon: PhoneAndroidOutlined, text: 'CELULARES', link: '/cellphones' },
-            { icon: HeadphonesOutlined, text: 'ACCESORIOS', link: '/accessories' },
-            { icon: LocalOfferOutlined, text: 'OFERTAS', link: '/offers' },
+            { icon: PhoneAndroidOutlined, text: 'CELULARES', link: '/PreEntrega2React/cellphones' },
+            { icon: HeadphonesOutlined, text: 'ACCESORIOS', link: '/PreEntrega2React/accessories' },
+            { icon: LocalOfferOutlined, text: 'OFERTAS', link: '/PreEntrega2React/offers' },
       ];
 
       return (
